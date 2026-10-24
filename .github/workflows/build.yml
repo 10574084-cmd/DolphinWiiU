@@ -1,0 +1,33 @@
+name: Build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    name: Pruebas (Linux)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Correr pruebas de la logica portable
+        run: make -C tests run
+
+  wiiu:
+    name: Compilar para Wii U
+    runs-on: ubuntu-latest
+    container: devkitpro/devkitppc:latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instalar wut
+        run: |
+          PM=$(command -v dkp-pacman || command -v pacman)
+          "$PM" -Syu --noconfirm wut
+      - name: Compilar
+        run: make
+      - uses: actions/upload-artifact@v4
+        with:
+          name: DolphinWiiU
+          path: |
+            DolphinWiiU.rpx
+            meta/meta.xml

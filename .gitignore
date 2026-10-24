@@ -1,0 +1,9 @@
+# compilacion Wii U
+build/
+*.rpx
+*.elf
+*.map
+*.wuhb
+
+# pruebas en Linux
+tests/test_runner
