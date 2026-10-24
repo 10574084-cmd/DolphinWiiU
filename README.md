@@ -10,7 +10,7 @@ integrar más adelante el núcleo de [Dolphin](https://dolphin-emu.org/).
 | Menú (Jugar, Opciones, Acerca de, Salir) | Escrito, lógica con pruebas automáticas en Linux |
 | Opciones (Video, Audio, Emulación, Controles) con guardado en `settings.ini` | Escrito, con pruebas |
 | Lista de juegos leyendo la cabecera de `.iso` / `.gcm` | Escrito, con pruebas |
-| Dibujo en TV/GamePad y lectura del GamePad (`src/wiiu`) | Escrito, **sin compilar con la toolchain real y sin probar en consola** |
+| Dibujo en TV/GamePad y lectura del GamePad (`src/wiiu`) | Compila con devkitPPC + wut en GitHub Actions. **Sin probar en una consola real**: no se sabe aún si se ve y responde bien |
 | **Núcleo de emulación** | **No existe.** Se usa `StubCore`, que rechaza todos los juegos |
 
 Hoy la app **no ejecuta ningún juego**. Ver [docs/CORE_PORTING.md](docs/CORE_PORTING.md)
